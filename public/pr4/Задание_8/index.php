@@ -58,7 +58,7 @@
 		array('id_track' => '56','name' => 'When the Music\'s Over','note' => '','id_album' => '11')
 	);
     
-    echo 'маркированный список<ul>';
+    echo '<h2>маркированный список</h2><ul>';
     $a=0;
     do {
         echo '<li>' . $track[$a]['id_track'] .'. ' . $track[$a]['name'] . '</li>';
@@ -66,6 +66,46 @@
     } while ($a < count($track));
     echo '</ul>';   
     
+	echo '<h2>нумерованный список</h2> <ol>';
+	for ($i = 0; $i < count($track); $i++) {
+		echo '<li>'. $track[$i]['id_track'] .' ' . $track[$i]['name'] .' '. $track[$i]['id_album'] .'</li>';
+	}
+	echo '</ol>';
 
-    
+	echo '<h2>foreach таблица</h2>';
+	echo '<table border="1">
+        <tr>
+            <th>id</th>
+            <th>трек</th>
+            <th>id альбома</th>
+        </tr>';
+
+	foreach ($track as $value) {
+    echo '<tr>
+            <td>' . $value['id_track'] . '</td>
+            <td>' . $value['name'] . '</td>
+            <td>' . $value['id_album'] . '</td>
+          </tr>';
+}
+
+	echo '</table>';
+
+	echo '<h2>таблица с помощью while</h2>';
+	echo '<table border="1">
+        <tr>
+            <th>id</th>
+            <th>трек</th>
+            <th>id альбома</th>
+        </tr>';
+	$k = 0;
+	while ($k < count($track)) {
+		echo '<tr>
+		<td>'. $track[$k]['id_track'] .'</td>
+		<td>'. $track[$k]['name'] .'</td>
+		<td>'. $track[$k]['id_track'] .'</td>
+		</tr>';
+		$k++;
+	}
+	echo '</table>';
+
 ?>

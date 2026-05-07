@@ -85,21 +85,10 @@
 		];
 
 		// перебираем массив
-		foreach ($albums as $key => $item) {
-			// выводим данные массива
-			$key = $key < 9 ? "000" . ++$key : "00". ++$key; // отформатируем вывод номера 
-
-
-			$out .= "
-				Номер - $key<br />
-				ID альбома: {$item['id']}<br />
-				Название: {$item['album_name']}<br />
-				Дата выпуска: {$item['date']}<br />
-				Лейбл: {$item['label']}<br />
-				Формат: {$item['format']}<br />
-				Статус: {$item['status']}<p>
-				<hr />
-			";	
+		foreach ($albums as $item) {
+			foreach ($item as $key => $value) {
+				echo $key . "" . strip_tags($value) ."<br>";
+			}
 		};
 		
 		echo $out;

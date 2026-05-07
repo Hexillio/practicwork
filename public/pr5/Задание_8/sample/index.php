@@ -34,19 +34,27 @@
 			["id"=>"9","album_name"=>"A Momentary Lapse","date"=>"8 сентября 1987","label"=>"EMI, Columbia","format"=>"LP, кассета, CD","status"=>"Платиновый (USA), Золотой (GBR), Платиновый (CAN)"],
 
 			["id"=>"10","album_name"=>"The Division Bell","date"=>"30 марта 1994","label"=>"EMI, Columbia","format"=>"LP, кассета, CD","status"=>"Платиновый (USA), Платиновый (GBR), Платиновый (CAN)"]
-		];
+			];
+		$out = ""; 
 
 		foreach ($albums as $item) {
-		
-			$out .= "
+			$list_status = explode(", ", $item['status']);
+
+			$out .= "<div>
 				<h4>{$item['album_name']} (id={$item['id']})</h4>
 				Дата выпуска: {$item['date']} <br />
 				Лейбл: {$item['label']} <br />
 				Формат: {$item['format']} <br />
-				Статус: {$item['status']} <br /><p>
-			";
+				Статус:
+				<ul>";
+			
+			foreach ($list_status as $value) {
+				$out .= "<li>" . htmlspecialchars($value) . "</li>";
+			}
+
+			$out .= "</ul></div><hr />";
 		}
-		
+
 		echo $out;
 	?>
 

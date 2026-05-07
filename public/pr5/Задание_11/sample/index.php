@@ -34,24 +34,24 @@
 		];
 
 		// переменная цикла
-		$i = 0;
-		
+			
 		$out = "";
-		
-		while ($i < count($albums)) {
-		
+		reset($albums); // ставим указатель на начало
+
+		while ($album = current($albums)) {
 			$out .= "
-				<h4>{$albums[$i]['album_name']} (id={$albums[$i]['id']})</h4>
-				Дата выпуска: {$albums[$i]['date']} <br />
-				Лейбл: {$albums[$i]['label']} <br />
-				Формат: {$albums[$i]['format']} <br />
-				Статус: {$albums[$i]['status']} <br /><p>
+				<h4>{$album['album_name']} (id={$album['id']})</h4>
+				Дата выпуска: {$album['date']} <br />
+				Лейбл: {$album['label']} <br />
+				Формат: {$album['format']} <br />
+				Статус: {$album['status']} <br /><p>
 			";
-			// инкрементируем переменную
-			$i++;
+			next($albums); // двигаем указатель дальше
 		}
-		
+
 		echo $out;
+		
+		
 	?>
 
 

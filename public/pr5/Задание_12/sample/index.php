@@ -34,22 +34,24 @@
 			["id"=>"10","album_name"=>"The Division Bell","date"=>"30 марта 1994","label"=>"EMI, Columbia","format"=>"LP, кассета, CD","status"=>"Платиновый (USA), Платиновый (GBR), Платиновый (CAN)"]
 		];
 
-		$i = 0;
-		
 		$out = "";
-		
-		while ($i < count($albums)) {
-		
+		end($albums); // ставим указатель на начало
+
+		do {
+			$album = current($albums);
 			$out .= "
-				<h4>{$albums[$i]['album_name']} (id={$albums[$i]['id']})</h4>
-				Дата выпуска: {$albums[$i]['date']} <br />
-				Лейбл: {$albums[$i]['label']} <br />
-				Формат: {$albums[$i]['format']} <br />
-				Статус: {$albums[$i]['status']} <br /><p>
+				<h4>{$album['album_name']} (id={$album['id']})</h4>
+				Дата выпуска: {$album['date']} <br />
+				Лейбл: {$album['label']} <br />
+				Формат: {$album['format']} <br />
+				Статус: {$album['status']} <br /><p>
 			";
-			
-			$i++;
-		}
+
+			prev($albums); // двигаем указатель дальше
+
+		} while (current($albums));
+
+
 		echo $out;
 	?>
 	

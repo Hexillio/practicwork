@@ -116,9 +116,9 @@
 				$item["id"],
 				$item["album_name"],
 				$item["date"],
-				$item["label"],
-				$item["format"],
-				$item["status"]
+				implode($item["label"]),
+				implode($item["format"]),
+				implode($item["status"])
 			);
 		}
 	?>

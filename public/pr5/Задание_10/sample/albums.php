@@ -20,3 +20,14 @@
 
 		["album_name"=>"The Division Bell","date"=>"30 марта 1994","label"=>"EMI, Columbia","format"=>"LP, кассета, CD","status"=>"Платиновый (USA), Платиновый (GBR), Платиновый (CAN)"]
 	];
+
+	$counter = 1;
+	foreach ($albums as &$item) {
+		if (!array_key_exists('id', $item)) {
+			$item['id'] = (string)$counter;
+		}
+		$counter++;
+	}
+
+	var_dump($albums);
+?>

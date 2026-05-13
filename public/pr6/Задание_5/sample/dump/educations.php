@@ -36,8 +36,8 @@
 		'institution' => 'Московский физико-технический институт', 
 		'qualification' => 'Информатика и вычислительная техника', 
 		'specialty' => 'Информатика и вычислительная техника', 
-		'year_receipts' => , 
-		'year_release' => , 
+		'year_receipts' => '', 
+		'year_release' => '', 
 		'note' => ''		
 		),
 		array (
@@ -46,8 +46,8 @@
 		'institution' => 'Московский физико-технический институт', 
 		'qualification' => 'Компьютерная безопасность', 
 		'specialty' => 'Компьютерная безопасность', 
-		'year_receipts' => , 
-		'year_release' => , 
+		'year_receipts' => '', 
+		'year_release' => '', 
 		'note' => ''		
 		),
 		array (

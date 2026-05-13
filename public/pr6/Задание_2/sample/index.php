@@ -9,7 +9,7 @@ function fnOutAlbum($arr) {
     <th>title</th>
     <th>date</th>
     <th>country</th>
-    <th>id_team/th>
+    <th>id_team</th>
     </tr>';
 
     foreach ($arr as $value) {
@@ -31,5 +31,7 @@ function fnOutAlbum($arr) {
 
 
 }
+
+fnOutAlbum($album)
 
 ?>

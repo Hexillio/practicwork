@@ -1,22 +1,23 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {   
-    
-    $Error = '';
-    
-    $connect = new mysqli("localhost","root","12345678","users");
 
-    $sql = sprintf("INSERT INTO `users`(`id`, `name`, `login`, `email`, `password`) VALUES (NULL,'%s','%s','%s','%s')",
-    $_POST["name"], $_POST["login"], $_POST["email"], $_POST["password"],
-    );
+    $name = $_POST['name'];
+    $login = $_POST['login'];
+    $email =$_POST['email'];
+    $password =$_POST['password'];
 
-    $result = mysqli_query($connect, $sql);
+    $host = "localhost";
+    $user = "root";
+    $pass = "12345678";
+    $database = "user";
 
-} else {
+    $connect = new mysqli($host, $user, $pass, $database);
+    $sql = "INSERT INTO `users`( `name`, `login`, `email`, `password`) 
+            VALUES ('$name','$login ','[value-4]','[value-5]')";
+    $result = 
 
-    $Error = "Notice:  Undefined  array  key";
-
-}
+} 
 
 ?>
 
@@ -79,21 +80,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <section style="min-height: 80vh;">
     <div class="container py-3">
-    <form class="w-50 mx-auto">
-
-        <form action = "" method = "POST">
+    <form class="w-50 mx-auto" method = "POST" action = "">
 
         <div class="mb-3">
 
             <label for="exampleInputName1" class="form-label">Имя</label>
-            <input name = "name" type="name" class="form-control rounded-pill shadow-sm px-3" id="exampleInputName1" aria-describedby="nameHelp">
+            <input name = "name" type="text" class="form-control rounded-pill shadow-sm px-3" id="exampleInputName1" aria-describedby="nameHelp">
 
         </div>
 
         <div class="mb-3">
 
             <label for="exampleInputLogin1" class="form-label">Логин</label>
-            <input name = "login" type="Login" class="form-control rounded-pill shadow-sm px-3" id="exampleInputLogin1" aria-describedby="LoginHelp">
+            <input name = "login" type="text" class="form-control rounded-pill shadow-sm px-3" id="exampleInputLogin1" aria-describedby="LoginHelp">
 
         </div>
 
@@ -101,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <label for="exampleInputEmail1" class="form-label">Почта</label>
             <input name = "email" type="email" class="form-control rounded-pill shadow-sm px-3" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <div id="emailHelp" class="text">We'll never share your email with anyone else.</div>
 
         </div>
 
@@ -112,20 +111,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         </div>
 
-        <div class="mb-3 form-check">
-
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
-
-        </div>
-
         <div class="mb-3">
 
             <label for="exampleInput1" class="form-label"><?= $Error ?></label>
         
         </div>
 
-            <button type="submit" class="btn btn-primary">Зарегестрироваться</button>
+            <button type="submit" class="btn btn-primary">Зарегестрироваться </button>
 
         </form>
     </div>

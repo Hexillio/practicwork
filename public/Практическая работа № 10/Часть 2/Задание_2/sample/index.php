@@ -9,18 +9,20 @@
 	<h1>Отправка данных на сервер</h1>
 	<h2>Еще о формах</h2>
 	
-	<?php
-		// подключаем файл с массивом заказа
-		include "orders.php";
-	?>
-	
 	<form action="server.php" method="post">
-		Фамилия: <input type="text" name=""><p>
-		Имя: <input type="text" name=""><p>
-		E-mail: <input type="email" name=""><p>
+		Фамилия: <input type="text" name="surname"><p>
+		Имя: <input type="text" name="name"><p>
+		E-mail: <input type="email" name="email"><p>
 		
 		<!-- блок вывода скрытых полей заказа -->
-
+		<?php 
+		include_once 'orders.php';
+		foreach ($orders as $item) { 
+		// каждый заказ массива переводим в JSON-представление 
+		$json = json_encode($item, JSON_UNESCAPED_UNICODE); 
+		echo "<input type='hidden' name='order[]' value='$json'><p>"; 
+		}
+		?>
 		<input type="submit">
 	</form>
 

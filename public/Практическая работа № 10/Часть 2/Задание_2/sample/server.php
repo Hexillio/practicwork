@@ -13,8 +13,17 @@
 	
 	<?php
 
-		// выводим данные глобального массива POST
-		
+
+	?><h2>Данные принятые обработчиком формы</h2><?php
+	$json = array();
+	
+		foreach ($_POST['order'] as $key => $value){
+			$json[$key] = json_decode($value);
+		}
+
+	echo '<pre>';
+	print_r($json);
+	echo '</pre>';
 	?>
 
 omsk
